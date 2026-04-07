@@ -1,13 +1,8 @@
 <div align="center">
 
-```
-███████╗███████╗██████╗ ██████╗ ██████╗ ██╗███████╗██╗  ██╗
-██╔════╝██╔════╝██╔══██╗██╔══██╗██╔══██╗██║██╔════╝██║  ██║
-█████╗  █████╗  ██████╔╝██████╔╝██║  ██║██║███████╗███████║
-██╔══╝  ██╔══╝  ██╔══██╗██╔══██╗██║  ██║██║╚════██║██╔══██║
-██║     ███████╗██║  ██║██║  ██║██████╔╝██║███████║██║  ██║
-╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝╚══════╝╚═╝  ╚═╝
-```
+<div align="center">
+  <img src="./feerd.svg" width="100%" />
+</div>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=3DDC84&center=true&vCenter=true&width=500&lines=Android+Modder+%26+Kernel+Tinkerer;Low-Level+System+Optimizer;Arch+Linux+%2F+CachyOS+Enthusiast;Shell+Scripter+%7C+Lua+Hacker;%22Build+things+people+actually+use.%22" alt="Typing SVG" />
 
@@ -44,7 +39,7 @@ I build tools that target **real performance**, not benchmarks. My work lives at
 
 | Domain | Tools |
 |---|---|
-| **Android** | Magisk, LMKD, kernel parameters, SELinux, ADB/Fastboot |
+| **Android** | Magisk, kernel parameters, SELinux, ADB/Fastboot |
 | **Linux** | Arch ecosystem, CachyOS, sysctl tuning, systemd |
 | **Scripting** | Bash/Shell, Lua, POSIX sh |
 | **Tooling** | Git, GitHub Actions, WebUI integration |
