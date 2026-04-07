@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800" height="160">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');
+
+      .bg { fill: #0d1117; }
+
+      .main-text {
+        font-family: 'Share Tech Mono', 'Courier New', monospace;
+        font-size: 72px;
+        font-weight: 700;
+        fill: #3DDC84;
+        letter-spacing: 6px;
+      }
+
+      .glitch-r {
+        font-family: 'Share Tech Mono', 'Courier New', monospace;
+        font-size: 72px;
+        font-weight: 700;
+        fill: #ff004c;
+        letter-spacing: 6px;
+        opacity: 0;
+        animation: glitch-r 4s infinite;
+      }
+
+      .glitch-b {
+        font-family: 'Share Tech Mono', 'Courier New', monospace;
+        font-size: 72px;
+        font-weight: 700;
+        fill: #00eaff;
+        letter-spacing: 6px;
+        opacity: 0;
+        animation: glitch-b 4s infinite;
+      }
+
+      .scanline {
+        fill: none;
+        stroke: rgba(61, 220, 132, 0.06);
+        stroke-width: 1;
+      }
+
+      .glow-line {
+        fill: none;
+        stroke: #3DDC84;
+        stroke-width: 1.5;
+        opacity: 0;
+        animation: glow-sweep 4s infinite;
+      }
+
+      .cursor {
+        fill: #3DDC84;
+        animation: blink 1s step-end infinite;
+      }
+
+      .sub-text {
+        font-family: 'Share Tech Mono', 'Courier New', monospace;
+        font-size: 13px;
+        fill: #3DDC84;
+        opacity: 0.5;
+        letter-spacing: 4px;
+      }
+
+      .bracket {
+        font-family: 'Share Tech Mono', 'Courier New', monospace;
+        font-size: 72px;
+        font-weight: 700;
+        fill: #ffffff;
+        opacity: 0.08;
+        letter-spacing: 6px;
+      }
+
+      .noise {
+        animation: noise 0.2s infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      @keyframes glitch-r {
+        0%   { opacity: 0; transform: translate(0,0); }
+        2%   { opacity: 0.8; transform: translate(-4px, 1px); }
+        4%   { opacity: 0; transform: translate(0,0); }
+        48%  { opacity: 0; transform: translate(0,0); }
+        50%  { opacity: 0.6; transform: translate(3px, -2px); }
+        52%  { opacity: 0; }
+        78%  { opacity: 0; }
+        80%  { opacity: 0.4; transform: translate(-3px, 0px); }
+        81%  { opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes glitch-b {
+        0%   { opacity: 0; transform: translate(0,0); }
+        2%   { opacity: 0.8; transform: translate(4px, -1px); }
+        4%   { opacity: 0; transform: translate(0,0); }
+        48%  { opacity: 0; }
+        50%  { opacity: 0.6; transform: translate(-3px, 2px); }
+        52%  { opacity: 0; }
+        78%  { opacity: 0; }
+        80%  { opacity: 0.4; transform: translate(3px, 0px); }
+        81%  { opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes glow-sweep {
+        0%   { opacity: 0; transform: translateY(-160px); }
+        10%  { opacity: 1; }
+        90%  { opacity: 1; }
+        100% { opacity: 0; transform: translateY(160px); }
+      }
+
+      @keyframes noise {
+        0%  { transform: translate(0, 0); }
+        25% { transform: translate(-1px, 1px); }
+        50% { transform: translate(1px, -1px); }
+        75% { transform: translate(-1px, -1px); }
+        100%{ transform: translate(1px, 1px); }
+      }
+    </style>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strong-glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="clip">
+      <rect width="800" height="160"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="160" class="bg" rx="8"/>
+
+  <!-- Scanlines -->
+  <g clip-path="url(#clip)">
+    <line x1="0" y1="10" x2="800" y2="10" class="scanline"/>
+    <line x1="0" y1="20" x2="800" y2="20" class="scanline"/>
+    <line x1="0" y1="30" x2="800" y2="30" class="scanline"/>
+    <line x1="0" y1="40" x2="800" y2="40" class="scanline"/>
+    <line x1="0" y1="50" x2="800" y2="50" class="scanline"/>
+    <line x1="0" y1="60" x2="800" y2="60" class="scanline"/>
+    <line x1="0" y1="70" x2="800" y2="70" class="scanline"/>
+    <line x1="0" y1="80" x2="800" y2="80" class="scanline"/>
+    <line x1="0" y1="90" x2="800" y2="90" class="scanline"/>
+    <line x1="0" y1="100" x2="800" y2="100" class="scanline"/>
+    <line x1="0" y1="110" x2="800" y2="110" class="scanline"/>
+    <line x1="0" y1="120" x2="800" y2="120" class="scanline"/>
+    <line x1="0" y1="130" x2="800" y2="130" class="scanline"/>
+    <line x1="0" y1="140" x2="800" y2="140" class="scanline"/>
+    <line x1="0" y1="150" x2="800" y2="150" class="scanline"/>
+
+    <!-- Sweep line -->
+    <line x1="0" y1="0" x2="800" y2="0" class="glow-line"/>
+
+    <!-- Ghost brackets -->
+    <text x="30" y="115" class="bracket">[</text>
+    <text x="737" y="115" class="bracket">]</text>
+
+    <!-- Glitch red layer -->
+    <text x="90" y="113" class="glitch-r" clip-path="url(#clip)">ferrdishx</text>
+
+    <!-- Glitch blue layer -->
+    <text x="90" y="113" class="glitch-b" clip-path="url(#clip)">ferrdishx</text>
+
+    <!-- Main text with glow -->
+    <text x="90" y="113" class="main-text" filter="url(#strong-glow)">ferrdishx</text>
+
+    <!-- Cursor -->
+    <rect x="706" y="75" width="10" height="48" rx="2" class="cursor"/>
+
+    <!-- Subtitle -->
+    <text x="91" y="140" class="sub-text">android modder · arch linux · system tweaker</text>
+  </g>
+
+  <!-- Border glow -->
+  <rect width="798" height="158" x="1" y="1" fill="none" stroke="#3DDC84" stroke-width="1" rx="8" opacity="0.15"/>
+</svg>
