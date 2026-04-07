@@ -22,14 +22,14 @@ ferrdish@arch ~ → cat about.txt
 ```
 
 ```
-Name    : Ferrdish
-Focus   : Android internals, kernel tweaks, LMK optimization
-OS      : CachyOS (Arch-based) | btw
+Name    : ferrdish
+Focus   : idk
+OS      : CachyOS
 Editor  : whatever gets the job done
-Status  : Actively breaking and fixing things
+Status  : actively breaking and fixing things
 ```
 
-I build tools that target **real performance**, not benchmarks. My work lives at the intersection of **Android system internals** and **Linux power-user environments**  from Magisk modules and LMKD tuning to shell utilities that just work.
+I build tools that target **real performance**, not benchmarks. My work lives at the intersection of **Android system internals** and **Linux power-user environments**  from Magisk modules tuning to shell utilities that just work.
 
 ---
 
