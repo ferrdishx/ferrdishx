@@ -20,7 +20,7 @@
         fill: #ff004c;
         letter-spacing: 6px;
         opacity: 0;
-        animation: glitch-r 4s infinite;
+        animation: glitch-r 3.5s infinite;
       }
 
       .glitch-b {
@@ -30,13 +30,7 @@
         fill: #00eaff;
         letter-spacing: 6px;
         opacity: 0;
-        animation: glitch-b 4s infinite;
-      }
-
-      .scanline {
-        fill: none;
-        stroke: rgba(61, 220, 132, 0.06);
-        stroke-width: 1;
+        animation: glitch-b 3.5s infinite;
       }
 
       .glow-line {
@@ -44,7 +38,7 @@
         stroke: #3DDC84;
         stroke-width: 1.5;
         opacity: 0;
-        animation: glow-sweep 4s infinite;
+        animation: glow-sweep 5s infinite linear;
       }
 
       .cursor {
@@ -54,10 +48,10 @@
 
       .sub-text {
         font-family: 'Share Tech Mono', 'Courier New', monospace;
-        font-size: 13px;
+        font-size: 14px;
         fill: #3DDC84;
-        opacity: 0.5;
-        letter-spacing: 4px;
+        letter-spacing: 5px;
+        animation: pulse 4s infinite alternate;
       }
 
       .bracket {
@@ -65,12 +59,14 @@
         font-size: 72px;
         font-weight: 700;
         fill: #ffffff;
-        opacity: 0.08;
+        opacity: 0.05;
         letter-spacing: 6px;
       }
 
-      .noise {
-        animation: noise 0.2s infinite;
+      .ui-marks {
+        stroke: #3DDC84;
+        stroke-width: 1;
+        opacity: 0.3;
       }
 
       @keyframes blink {
@@ -78,114 +74,95 @@
         50% { opacity: 0; }
       }
 
+      @keyframes pulse {
+        0% { opacity: 0.4; }
+        100% { opacity: 0.8; }
+      }
+
       @keyframes glitch-r {
         0%   { opacity: 0; transform: translate(0,0); }
-        2%   { opacity: 0.8; transform: translate(-4px, 1px); }
-        4%   { opacity: 0; transform: translate(0,0); }
-        48%  { opacity: 0; transform: translate(0,0); }
-        50%  { opacity: 0.6; transform: translate(3px, -2px); }
-        52%  { opacity: 0; }
-        78%  { opacity: 0; }
-        80%  { opacity: 0.4; transform: translate(-3px, 0px); }
-        81%  { opacity: 0; }
+        5%   { opacity: 0.8; transform: translate(-5px, 2px); }
+        7%   { opacity: 0; transform: translate(0,0); }
+        52%  { opacity: 0; transform: translate(0,0); }
+        54%  { opacity: 0.7; transform: translate(4px, -3px) skewX(5deg); }
+        56%  { opacity: 0; transform: skewX(0deg); }
+        80%  { opacity: 0; }
+        82%  { opacity: 0.5; transform: translate(-3px, 0px); }
+        84%  { opacity: 0; }
         100% { opacity: 0; }
       }
 
       @keyframes glitch-b {
         0%   { opacity: 0; transform: translate(0,0); }
-        2%   { opacity: 0.8; transform: translate(4px, -1px); }
-        4%   { opacity: 0; transform: translate(0,0); }
-        48%  { opacity: 0; }
-        50%  { opacity: 0.6; transform: translate(-3px, 2px); }
-        52%  { opacity: 0; }
-        78%  { opacity: 0; }
-        80%  { opacity: 0.4; transform: translate(3px, 0px); }
-        81%  { opacity: 0; }
+        5%   { opacity: 0.8; transform: translate(5px, -2px); }
+        7%   { opacity: 0; transform: translate(0,0); }
+        52%  { opacity: 0; transform: translate(0,0); }
+        54%  { opacity: 0.7; transform: translate(-4px, 3px) skewX(-5deg); }
+        56%  { opacity: 0; transform: skewX(0deg); }
+        80%  { opacity: 0; }
+        82%  { opacity: 0.5; transform: translate(3px, 0px); }
+        84%  { opacity: 0; }
         100% { opacity: 0; }
       }
 
       @keyframes glow-sweep {
-        0%   { opacity: 0; transform: translateY(-160px); }
-        10%  { opacity: 1; }
-        90%  { opacity: 1; }
-        100% { opacity: 0; transform: translateY(160px); }
-      }
-
-      @keyframes noise {
-        0%  { transform: translate(0, 0); }
-        25% { transform: translate(-1px, 1px); }
-        50% { transform: translate(1px, -1px); }
-        75% { transform: translate(-1px, -1px); }
-        100%{ transform: translate(1px, 1px); }
+        0%   { opacity: 0; transform: translateY(-20px); }
+        10%  { opacity: 0.8; }
+        40%  { opacity: 0.8; }
+        50%  { opacity: 0; transform: translateY(180px); }
+        100% { opacity: 0; transform: translateY(180px); }
       }
     </style>
 
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="strong-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur1"/>
+      <feGaussianBlur stdDeviation="15" result="blur2"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <filter id="strong-glow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#3DDC84" stroke-width="1" opacity="0.06"/>
+    </pattern>
 
-    <clipPath id="clip">
-      <rect width="800" height="160"/>
-    </clipPath>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="60%" stop-color="#0d1117" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#050709" stop-opacity="0.8"/>
+    </radialGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="800" height="160" class="bg" rx="8"/>
+  <rect width="100%" height="100%" class="bg" rx="8"/>
+  
+  <rect width="100%" height="100%" fill="url(#scanlines)" rx="8"/>
+  
+  <rect width="100%" height="100%" fill="url(#vignette)" rx="8"/>
 
-  <!-- Scanlines -->
-  <g clip-path="url(#clip)">
-    <line x1="0" y1="10" x2="800" y2="10" class="scanline"/>
-    <line x1="0" y1="20" x2="800" y2="20" class="scanline"/>
-    <line x1="0" y1="30" x2="800" y2="30" class="scanline"/>
-    <line x1="0" y1="40" x2="800" y2="40" class="scanline"/>
-    <line x1="0" y1="50" x2="800" y2="50" class="scanline"/>
-    <line x1="0" y1="60" x2="800" y2="60" class="scanline"/>
-    <line x1="0" y1="70" x2="800" y2="70" class="scanline"/>
-    <line x1="0" y1="80" x2="800" y2="80" class="scanline"/>
-    <line x1="0" y1="90" x2="800" y2="90" class="scanline"/>
-    <line x1="0" y1="100" x2="800" y2="100" class="scanline"/>
-    <line x1="0" y1="110" x2="800" y2="110" class="scanline"/>
-    <line x1="0" y1="120" x2="800" y2="120" class="scanline"/>
-    <line x1="0" y1="130" x2="800" y2="130" class="scanline"/>
-    <line x1="0" y1="140" x2="800" y2="140" class="scanline"/>
-    <line x1="0" y1="150" x2="800" y2="150" class="scanline"/>
-
-    <!-- Sweep line -->
-    <line x1="0" y1="0" x2="800" y2="0" class="glow-line"/>
-
-    <!-- Ghost brackets -->
-    <text x="30" y="115" class="bracket">[</text>
-    <text x="737" y="115" class="bracket">]</text>
-
-    <!-- Glitch red layer -->
-    <text x="90" y="113" class="glitch-r" clip-path="url(#clip)">ferrdishx</text>
-
-    <!-- Glitch blue layer -->
-    <text x="90" y="113" class="glitch-b" clip-path="url(#clip)">ferrdishx</text>
-
-    <!-- Main text with glow -->
-    <text x="90" y="113" class="main-text" filter="url(#strong-glow)">ferrdishx</text>
-
-    <!-- Cursor -->
-    <rect x="706" y="75" width="10" height="48" rx="2" class="cursor"/>
-
-    <!-- Subtitle -->
-    <text x="91" y="140" class="sub-text">android modder · arch linux · system tweaker</text>
+  <g class="ui-marks">
+    <path d="M 20 30 L 20 20 L 30 20" fill="none"/>
+    <path d="M 780 30 L 780 20 L 770 20" fill="none"/>
+    <path d="M 20 130 L 20 140 L 30 140" fill="none"/>
+    <path d="M 780 130 L 780 140 L 770 140" fill="none"/>
   </g>
 
-  <!-- Border glow -->
-  <rect width="798" height="158" x="1" y="1" fill="none" stroke="#3DDC84" stroke-width="1" rx="8" opacity="0.15"/>
+  <line x1="0" y1="0" x2="800" y2="0" class="glow-line"/>
+
+  <g transform="translate(400, 80)">
+    
+    <text x="-340" y="22" text-anchor="middle" class="bracket">[</text>
+    <text x="340" y="22" text-anchor="middle" class="bracket">]</text>
+
+    <text x="0" y="20" text-anchor="middle" class="glitch-r">ferrdishx</text>
+    <text x="0" y="20" text-anchor="middle" class="glitch-b">ferrdishx</text>
+
+    <text x="0" y="20" text-anchor="middle" class="main-text" filter="url(#strong-glow)">ferrdishx</text>
+
+    <text x="0" y="55" text-anchor="middle" class="sub-text">android modder · arch linux · system tweaker</text>
+
+    <rect x="235" y="-30" width="12" height="52" rx="2" class="cursor" filter="url(#strong-glow)"/>
+  </g>
+
+  <rect width="798" height="158" x="1" y="1" fill="none" stroke="#3DDC84" stroke-width="1.5" rx="8" opacity="0.15"/>
 </svg>
