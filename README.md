@@ -58,7 +58,6 @@ I build tools that target **real performance**, not benchmarks. My work lives at
 ---
 
 ## `$ cat projects/featured.md`
-
 <table>
   <tr>
     <td width="50%" valign="top">
@@ -79,6 +78,18 @@ I build tools that target **real performance**, not benchmarks. My work lives at
         <img src="https://img.shields.io/badge/Type-App-0d1117?style=flat-square" />
       </p>
     </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>⬇️ Omni</h3>
+      <p>Open-source Android media hub powered by <strong>yt-dlp</strong> and <strong>FFmpeg</strong>. Downloads video and audio from 700+ platforms at up to <strong>4K 60fps</strong> and <strong>320kbps</strong>, with a built-in ExoPlayer, PiP support, and Material You theming.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white" />
+        <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" />
+        <img src="https://img.shields.io/badge/Type-App-0d1117?style=flat-square" />
+      </p>
+    </td>
+    <td width="50%" valign="top"></td>
   </tr>
 </table>
 
